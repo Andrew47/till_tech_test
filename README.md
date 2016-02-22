@@ -42,7 +42,7 @@ Using the sample JSON file, these respectively return: The Coffee Connection, 12
 Orders need to be specified in a dictionary, with the name of each item and the amount ordered:
 
 ```
-order = {"Cafe Latte": 2,                                          "Blueberry Muffin": 1, "Choc Mudcake": 1}
+order = {"Cafe Latte": 2, "Blueberry Muffin": 1, "Choc Mudcake": 1}
 ```
 
 Then the tax cost can be found - here using a 8.64% tax rate:
@@ -54,12 +54,12 @@ print receipt.tax(order)
 The total cost can be found:
 
 ```
-print receipt.total_cost({"Cafe Latte": 2, "Blueberry Muffin": 1, "Choc Mudcake": 1})
+print receipt.total_cost(order)
 ```
 The line totals can be found:
 
 ```
-print receipt.line_total({"Cafe Latte": 2,                                           "Blueberry Muffin": 1, "Choc Mudcake": 1})
+print receipt.line_total(order)
 ```
 
 This will return (using the sample JSON file):
