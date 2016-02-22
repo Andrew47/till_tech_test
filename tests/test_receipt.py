@@ -9,6 +9,7 @@ class TestReceipt(unittest.TestCase):
         self.interpreter = MagicMock()
         self.interpreter.shopName = MagicMock(return_value = "The Coffee Connection")
         self.interpreter.address = MagicMock(return_value = "123 Lakeside Way")
+        self.interpreter.phone = MagicMock(return_value = "16503600708")
         self.receipt = Receipt(self.interpreter)
 
     def test_receipt_reads_shopName_from_interpreter(self):
@@ -18,4 +19,4 @@ class TestReceipt(unittest.TestCase):
         self.assertEqual(self.receipt.address, "123 Lakeside Way")
 
     def test_receipt_reads_phone_from_interpreter(self):
-        pass
+        self.assertEqual(self.receipt.phone, "16503600708")

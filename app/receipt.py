@@ -6,3 +6,4 @@ class Receipt(object):
         self.interpreter = interpreter
         self.shopName = self.interpreter.shopName()
         self.address = self.interpreter.address()
+        self.phone = self.interpreter.phone()

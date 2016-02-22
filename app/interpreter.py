@@ -5,3 +5,6 @@ class Interpreter(object):
 
     def address(self):
         pass
+
+    def phone(self):
+        pass
