@@ -1,6 +1,6 @@
 import nose
 import unittest
-import app.receipt
+from app.receipt import Receipt
 
 
 class TestReceiptFeatures(unittest.TestCase):
