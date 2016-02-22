@@ -6,7 +6,7 @@ class Interpreter(object):
         return self.read_json_file()[0]['shopName']
 
     def address(self):
-        pass
+        return self.read_json_file()[0]['address']
 
     def phone(self):
         pass
