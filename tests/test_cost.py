@@ -28,6 +28,14 @@ class TestCost(unittest.TestCase):
                                             "Blueberry Muffin": 1, "Choc Mudcake": 1}),
                                             round(self.sample_pretax_cost()*1.0864, 2))
 
+    def test_line_total_gives_dict_line_totals(self):
+        self.assertEqual(self.cost.line_total({"Cafe Latte": 2,
+                                               "Blueberry Muffin": 1, "Choc Mudcake": 1}),
+                                               {"Cafe Latte": 2*self.interpreter.price("Cafe Latte"),
+                                                 "Blueberry Muffin": self.interpreter.price("Blueberry Muffin"),
+                                                 "Choc Mudcake": self.interpreter.price("Choc Mudcake")}
+                                               )
+
 
     def side_effect(self, value):
         if value == "Cafe Latte":

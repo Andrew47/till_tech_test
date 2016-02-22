@@ -11,10 +11,17 @@ class Cost(object):
         return reduce(self.add, self.cost_list(order))
 
     def cost_list(self, order):
-        total = []
+        cost_list = []
         for item in order:
-            total.append(self.price(item) * order[item])
-        return total
+            cost_list.append(self.price(item) * order[item])
+        return cost_list
+
+    def line_total(self, order):
+        items = []
+        for item in order:
+            items.append(item)
+        cost_list = self.cost_list(order)
+        return dict(zip(items, cost_list))
 
     def unrounded_tax(self, order):
         return (self.pretax(order))*self._TAX

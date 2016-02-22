@@ -15,3 +15,6 @@ class Receipt(object):
 
     def total_cost(self, orders):
         return self.cost.total_cost(orders)
+
+    def line_total(self, orders):
+        return self.cost.line_total(orders)

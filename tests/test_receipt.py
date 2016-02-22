@@ -29,3 +29,7 @@ class TestReceipt(unittest.TestCase):
     def test_receipt_sends_order_to_get_total_cost(self):
         self.receipt.total_cost({})
         self.cost.total_cost.assert_called_once_with({})
+
+    def test_receipt_sends_order_to_get_line_total(self):
+        self.receipt.line_total({})
+        self.cost.line_total.assert_called_once_with({})
