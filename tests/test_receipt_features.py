@@ -15,7 +15,12 @@ class TestReceiptFeatures(unittest.TestCase):
         self.assertEqual(self.receipt.address, "123 Lakeside Way")
         self.assertEqual(self.receipt.phone, "16503600708")
 
-    def test_receipt_displays_correct_cost(self):
+    def test_receipt_displays_correct_tax(self):
         self.assertEqual(self.receipt.tax({"Cafe Latte": 2,
                                             "Blueberry Muffin": 1, "Choc Mudcake": 1}),
                                             round(((2*4.75 + 4.05 + 6.40)*0.0864), 2))
+
+    def test_receipt_displays_correct_total_cost(self):
+        self.assertEqual(self.receipt.total_cost({"Cafe Latte": 2,
+                                            "Blueberry Muffin": 1, "Choc Mudcake": 1}),
+                                            round(((2*4.75 + 4.05 + 6.40)*1.0864), 2))
