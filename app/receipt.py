@@ -12,3 +12,6 @@ class Receipt(object):
 
     def tax(self, orders):
         return self.cost.tax(orders)
+
+    def total_cost(self, orders):
+        return self.cost.total_cost(orders)

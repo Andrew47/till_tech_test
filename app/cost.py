@@ -13,9 +13,15 @@ class Cost(object):
             total.append(self.price(item) * order[item])
         return reduce(self.add, total)
 
+    def unrounded_tax(self, order):
+        return (self.pretax(order))*self._TAX
+
     def tax(self, order):
-        tax = (self.pretax(order))*self._TAX
-        return round(tax, 2)
+        return round(self.unrounded_tax(order), 2)
+
+    def total_cost(self, order):
+        total_cost = self.pretax(order) + self.unrounded_tax(order)
+        return round(total_cost, 2)
 
     def price(self, item):
         return self.interpreter.price(item)
