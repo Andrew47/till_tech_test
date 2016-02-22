@@ -1,4 +1,7 @@
 class Interpreter(object):
     """Interprets the JSON doc"""
-    def name(self):
+    def shopName(self):
+        pass
+
+    def address(self):
         pass
