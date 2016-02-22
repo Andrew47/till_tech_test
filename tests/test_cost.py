@@ -16,7 +16,12 @@ class TestCost(unittest.TestCase):
     def test_pretax_gives_pretax_amount(self):
         self.assertEqual(self.cost.pretax({"Cafe Latte": 2,
                                             "Blueberry Muffin": 1, "Choc Mudcake": 1}),
-                                            round((2*4.75 + 4.05 + 6.40), 2))
+                                            round(self.sample_cost(), 2))
+
+    def test_tax_gives_tax_amount(self):
+        self.assertEqual(self.cost.tax({"Cafe Latte": 2,
+                                            "Blueberry Muffin": 1, "Choc Mudcake": 1}),
+                                            round(self.sample_cost()*0.0864, 2))
 
     def side_effect(self, value):
         if value == "Cafe Latte":
@@ -25,3 +30,8 @@ class TestCost(unittest.TestCase):
             return 4.05
         if value == "Choc Mudcake":
             return 6.40
+
+    def sample_cost(self):
+        return (2*self.interpreter.price("Cafe Latte")
+               + self.interpreter.price("Blueberry Muffin")
+               + self.interpreter.price("Choc Mudcake"))
