@@ -8,10 +8,13 @@ class Cost(object):
         self._TAX = 0.0864
 
     def pretax(self, order):
+        return reduce(self.add, self.cost_list(order))
+
+    def cost_list(self, order):
         total = []
         for item in order:
             total.append(self.price(item) * order[item])
-        return reduce(self.add, total)
+        return total
 
     def unrounded_tax(self, order):
         return (self.pretax(order))*self._TAX
