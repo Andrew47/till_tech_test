@@ -5,6 +5,7 @@ from app.interpreter import Interpreter
 
 
 class TestReceiptFeatures(unittest.TestCase):
+    """Feature Tests for Receipt"""
     def setUp(self):
         self.interpreter = Interpreter()
         self.receipt = Receipt(self.interpreter)

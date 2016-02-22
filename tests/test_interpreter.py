@@ -3,7 +3,7 @@ import unittest
 from app.interpreter import Interpreter
 
 class TestInterpreter(unittest.TestCase):
-    """Translates JSON file into Python Object"""
+    """Unit Tests for Interpreter Class"""
     def setUp(self):
         self.interpreter = Interpreter()
 
@@ -15,3 +15,6 @@ class TestInterpreter(unittest.TestCase):
 
     def test_address_extracted_from_JSON(self):
         self.assertEqual(self.interpreter.phone(), "16503600708")
+
+    def test_price_extracted_from_JSON(self):
+        self.assertEqual(self.interpreter.price("Cafe Latte"), 4.75)
