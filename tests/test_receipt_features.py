@@ -10,6 +10,6 @@ class TestReceiptFeatures(unittest.TestCase):
         self.receipt = Receipt(self.interpreter)
 
     def test_receipt_displays_restaurant_details(self):
-        self.assertEqual(self.receipt.read_details['name'], "The Coffee Connection")
-        self.assertEqual(self.receipt.read_details['address'], "123 Lakeside Way")
-        self.assertEqual(self.receipt.read_details['telephone'], "16503600708")
+        self.assertEqual(self.receipt.shopName, "The Coffee Connection")
+        self.assertEqual(self.receipt.address, "123 Lakeside Way")
+        self.assertEqual(self.receipt.phone, "16503600708")
